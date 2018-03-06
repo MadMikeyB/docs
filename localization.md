@@ -7,6 +7,8 @@
 - [Retrieving Translation Strings](#retrieving-translation-strings)
     - [Replacing Parameters In Translation Strings](#replacing-parameters-in-translation-strings)
     - [Pluralization](#pluralization)
+    - [Retrieving all Translation Strings for a specific file](#retrieving-all-translation-strings-for-file)
+
 - [Overriding Package Language Files](#overriding-package-language-files)
 
 <a name="introduction"></a>
@@ -142,6 +144,17 @@ You may also define place-holder attributes in pluralization strings. These plac
     'minutes_ago' => '{1} :value minute ago|[2,*] :value minutes ago',
 
     echo trans_choice('time.minutes_ago', 5, ['value' => 5]);
+
+<a name="retrieving-all-translation-strings-for-file"></a>
+## Retrieving all Translation Strings for a specific file
+
+You may retrieve all translation strings for a given file by using the `Lang` facade. For example, if you wanted to get the contents of `resources/lang/en/messages.php` to pass to a Vue application, you would do the following:
+
+```
+use Lang;
+
+Lang::get('messages');
+```
 
 <a name="overriding-package-language-files"></a>
 ## Overriding Package Language Files
